@@ -1,73 +1,29 @@
 <!DOCTYPE html>
-<html lang="id">
+<html>
 <head>
-<meta charset="UTF-8">
-<title>Dashboard ZALTV</title>
-
-<style>
-body {
-    background:#000;
-    color:white;
-    font-family:sans-serif;
-}
-
-.nav {
-    padding:20px;
-    background:#111;
-    display:flex;
-    justify-content:space-between;
-}
-
-.btn {
-    background:red;
-    padding:8px;
-    cursor:pointer;
-}
-
-.grid {
-    display:flex;
-    flex-wrap:wrap;
-    padding:20px;
-}
-
-.card {
-    width:200px;
-    margin:10px;
-    cursor:pointer;
-}
-
-.card img {
-    width:100%;
-}
-</style>
+<title>ZALTV Login</title>
 </head>
 
-<body>
+<body style="background:black;color:white;text-align:center;margin-top:100px;">
 
-<div class="nav">
-    <h2>ZALTV DASHBOARD</h2>
-    <div class="btn" onclick="logout()">Logout</div>
-</div>
+<h2>Login ZALTV</h2>
 
-<div class="grid">
-    <div class="card" onclick="play()">
-        <img src="https://via.placeholder.com/200x300">
-        <p>Channel 1</p>
-    </div>
-</div>
+<input id="user" placeholder="Username"><br><br>
+<input id="pass" type="password" placeholder="Password"><br><br>
+
+<button onclick="login()">Login</button>
 
 <script>
-if(localStorage.getItem("login") !== "true"){
-    window.location.href="index.html";
-}
+function login(){
+    var u = document.getElementById("user").value;
+    var p = document.getElementById("pass").value;
 
-function logout(){
-    localStorage.removeItem("login");
-    window.location.href="index.html";
-}
-
-function play(){
-    window.location.href="player.html";
+    if(u === "admin" && p === "1234"){
+        localStorage.setItem("zaltv_login","yes");
+        window.location.href = "dashboard.html";
+    } else {
+        alert("Username / Password salah");
+    }
 }
 </script>
 
