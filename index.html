@@ -2,107 +2,72 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ZALTV Code - IPTV Murah</title>
+<title>Dashboard ZALTV</title>
 
 <style>
 body {
-    margin:0;
-    font-family: Arial, sans-serif;
-    background: #0f172a;
-    color: white;
+    background:#000;
+    color:white;
+    font-family:sans-serif;
 }
 
-header {
-    background: #020617;
-    padding: 20px;
-    text-align: center;
+.nav {
+    padding:20px;
+    background:#111;
+    display:flex;
+    justify-content:space-between;
 }
 
-header h1 {
-    color: #22c55e;
+.btn {
+    background:red;
+    padding:8px;
+    cursor:pointer;
 }
 
-.container {
-    padding: 20px;
-    text-align: center;
+.grid {
+    display:flex;
+    flex-wrap:wrap;
+    padding:20px;
 }
 
 .card {
-    background: #1e293b;
-    margin: 15px auto;
-    padding: 20px;
-    border-radius: 10px;
-    max-width: 300px;
+    width:200px;
+    margin:10px;
+    cursor:pointer;
 }
 
-.price {
-    font-size: 22px;
-    color: #22c55e;
-}
-
-button {
-    background: #22c55e;
-    border: none;
-    padding: 10px 20px;
-    color: black;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-footer {
-    margin-top: 40px;
-    padding: 10px;
-    background: #020617;
+.card img {
+    width:100%;
 }
 </style>
-
 </head>
 
 <body>
 
-<header>
-    <h1>ZALTV CODE</h1>
-    <p>Streaming Murah & Lengkap 🔥</p>
-</header>
-
-<div class="container">
-
-    <h2>Paket Harga</h2>
-
-    <div class="card">
-        <h3>1 Bulan</h3>
-        <p class="price">Rp 35.000</p>
-        <button onclick="order()">Beli Sekarang</button>
-    </div>
-
-    <div class="card">
-        <h3>3 Bulan</h3>
-        <p class="price">Rp 95.000</p>
-        <button onclick="order()">Beli Sekarang</button>
-    </div>
-
-    <div class="card">
-        <h3>6 Bulan</h3>
-        <p class="price">Rp 150.000</p>
-        <button onclick="order()">Beli Sekarang</button>
-    </div>
-
-    <div class="card">
-        <h3>1 Tahun</h3>
-        <p class="price">Rp 280.000</p>
-        <button onclick="order()">Beli Sekarang</button>
-    </div>
-
+<div class="nav">
+    <h2>ZALTV DASHBOARD</h2>
+    <div class="btn" onclick="logout()">Logout</div>
 </div>
 
-<footer>
-    <p>© 2026 ZALTV - All Rights Reserved</p>
-</footer>
+<div class="grid">
+    <div class="card" onclick="play()">
+        <img src="https://via.placeholder.com/200x300">
+        <p>Channel 1</p>
+    </div>
+</div>
 
 <script>
-function order(){
-    window.location.href = "https://wa.me/628xxxxxxxxxx";
+if(localStorage.getItem("login") !== "true"){
+    window.location.href="index.html";
+}
+
+function logout(){
+    localStorage.removeItem("login");
+    window.location.href="index.html";
+}
+
+function play(){
+    window.location.href="player.html";
 }
 </script>
 
